@@ -1,0 +1,38 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:21709",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "BrokerMessages": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "hc",
+      "applicationUrl": "http://localhost:5096",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APP_CONNECTIONSTRING": "Server=localhost,11433;Database=PUC-Broker;User Id=sa;Password=q1w2e3@db;MultipleActiveResultSets=True",
+        "APP_DB_SCRIPTS": "",
+        "APP_RABBIT__SERVER__HOSTNAME": "localhost"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "hc",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APP_CONNECTIONSTRING": "Server=localhost,11433;Database=PUC-Broker;User Id=sa;Password=q1w2e3@db;MultipleActiveResultSets=True",
+        "APP_DB_SCRIPTS": "",
+        "APP_RABBIT__SERVER__HOSTNAME": "localhost"
+      }
+    }
+  }
+}
+

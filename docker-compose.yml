@@ -1,0 +1,64 @@
+version: "3.6"
+services:
+  broker-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: q1w2e3@db
+      MSSQL_DB: PUC-Broker
+      MSSQL_USER: db
+      MSSQL_PASSWORD: 123456
+    command: /bin/bash ./entrypoint.sh
+    ports:
+      - "11433:1433"
+    volumes:
+      - mssqldata:/var/opt/mssql
+      - ./db/docker-entrypoint.sh:/entrypoint.sh
+      - ./db/docker-db-init.sh:/db-init.sh
+      - ./db/docker-db-init.sql:/db-init.sql
+    labels:
+      type: "broker"
+
+  broker-rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    labels:
+      type: "broker"
+
+  broker-api:
+    build:
+      context: ./broker
+      dockerfile: Dockerfile-Broker
+    container_name: broker-service
+    depends_on:
+      - broker-rabbitmq
+      - broker-sqlserver
+    ports:
+      - "9001:80"
+      - "9002:443"
+    environment:
+      APP_RABBIT__SERVER__HOSTNAME: "broker-rabbitmq"
+      APP_CONNECTIONSTRING: "Server=broker-sqlserver;Database=PUC-DBBroker;User Id=sa;Password=q1w2e3@db;MultipleActiveResultSets=True"
+      APP_RABBIT__SERVER__SUFFIX: "local"
+      APP_DB_SCRIPTS: "/app/Scripts"
+  broker-message:
+    build:
+      context: ./broker
+      dockerfile: Dockerfile-Messages
+    container_name: broker-message
+    depends_on:
+      - broker-rabbitmq
+      - broker-sqlserver
+      - broker-api
+    ports:
+      - "9011:80"
+      - "9012:443"
+    environment:
+      APP_RABBIT__SERVER__HOSTNAME: "broker-rabbitmq"
+      APP_CONNECTIONSTRING: "Server=broker-sqlserver;Database=PUC-DBBroker;User Id=sa;Password=q1w2e3@db;MultipleActiveResultSets=True"
+      APP_RABBIT__SERVER__SUFFIX: "local"
+      APP_DB_SCRIPTS: "/app/Scripts"
+volumes:
+  mssqldata:

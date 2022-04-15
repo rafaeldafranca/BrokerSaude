@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService", "BrokerService\BrokerService.csproj", "{FC529BF7-801B-4FB1-AE66-DF38F7AEDC34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService.Core", "BrokerService.Core\BrokerService.Core.csproj", "{958D5A7D-8827-4650-BDC0-45CEEA260FB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService.Domain", "BrokerService.Domain\BrokerService.Domain.csproj", "{694F550D-F168-47C4-A822-2150C592948E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService.Middle", "BrokerService.Middle\BrokerService.Middle.csproj", "{1846D14D-5FDB-4BFE-AAF9-DAA9AFED0A6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService.Services", "BrokerService.Services\BrokerService.Services.csproj", "{06B12C27-158A-4CFA-856D-249E4421F188}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerService.Tests", "BrokerService.Tests\BrokerService.Tests.csproj", "{940AF2F3-C6A8-4AA1-9BFC-F7F866EA9F12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extras", "extras", "{285FF492-01A3-427C-948C-557DD4B892E8}"
+	ProjectSection(SolutionItems) = preProject
+		..\docker-compose.yml = ..\docker-compose.yml
+		Dockerfile-Broker = Dockerfile-Broker
+		run.bat = run.bat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exemplos em Json", "Exemplos em Json", "{826A44CD-2A0F-4EB8-BCF8-97DBE4D3807E}"
+	ProjectSection(SolutionItems) = preProject
+		..\Exemplos.JSON\Associado.json = ..\Exemplos.JSON\Associado.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC529BF7-801B-4FB1-AE66-DF38F7AEDC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC529BF7-801B-4FB1-AE66-DF38F7AEDC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC529BF7-801B-4FB1-AE66-DF38F7AEDC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC529BF7-801B-4FB1-AE66-DF38F7AEDC34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958D5A7D-8827-4650-BDC0-45CEEA260FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958D5A7D-8827-4650-BDC0-45CEEA260FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958D5A7D-8827-4650-BDC0-45CEEA260FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958D5A7D-8827-4650-BDC0-45CEEA260FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694F550D-F168-47C4-A822-2150C592948E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694F550D-F168-47C4-A822-2150C592948E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694F550D-F168-47C4-A822-2150C592948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694F550D-F168-47C4-A822-2150C592948E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1846D14D-5FDB-4BFE-AAF9-DAA9AFED0A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1846D14D-5FDB-4BFE-AAF9-DAA9AFED0A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1846D14D-5FDB-4BFE-AAF9-DAA9AFED0A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1846D14D-5FDB-4BFE-AAF9-DAA9AFED0A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B12C27-158A-4CFA-856D-249E4421F188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B12C27-158A-4CFA-856D-249E4421F188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B12C27-158A-4CFA-856D-249E4421F188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B12C27-158A-4CFA-856D-249E4421F188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940AF2F3-C6A8-4AA1-9BFC-F7F866EA9F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940AF2F3-C6A8-4AA1-9BFC-F7F866EA9F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940AF2F3-C6A8-4AA1-9BFC-F7F866EA9F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940AF2F3-C6A8-4AA1-9BFC-F7F866EA9F12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{826A44CD-2A0F-4EB8-BCF8-97DBE4D3807E} = {285FF492-01A3-427C-948C-557DD4B892E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CF21098-B1BC-4448-98D8-D84756E7D30A}
+	EndGlobalSection
+EndGlobal

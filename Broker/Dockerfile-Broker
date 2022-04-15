@@ -1,0 +1,34 @@
+ARG version='1.0.0'
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+ARG version
+WORKDIR /src
+
+# Copia os arquivos para dentro do container
+COPY . .
+
+# Executa o build na solução inteira
+RUN dotnet build "./BrokerService.Domain/BrokerService.Domain.csproj" -c Release -o /app
+RUN dotnet build "./BrokerService.Core/BrokerService.Core.csproj" -c Release -o /app
+RUN dotnet build "./BrokerService.Services/BrokerService.Services.csproj" -c Release -o /app
+RUN dotnet build "./BrokerService.Middle/BrokerService.Middle.csproj" -c Release -o /app
+RUN dotnet build "./BrokerService.Tests/BrokerService.Tests.csproj" -c Release -o /app
+RUN dotnet build "./BrokerService/BrokerService.csproj" -c Release -o /app
+
+# Executa o publish da API
+WORKDIR /src
+RUN dotnet publish "./BrokerService.Domain/BrokerService.Domain.csproj" -c Release -o /app
+RUN dotnet publish "./BrokerService.Core/BrokerService.Core.csproj" -c Release -o /app
+RUN dotnet publish "./BrokerService.Services/BrokerService.Services.csproj" -c Release -o /app
+RUN dotnet publish "./BrokerService.Middle/BrokerService.Middle.csproj" -c Release -o /app
+RUN dotnet publish "./BrokerService.Tests/BrokerService.Tests.csproj" -c Release -o /app
+RUN dotnet publish "./BrokerService/BrokerService.csproj" -c Release -o /app
+RUN mkdir /app/logs/
+RUN mkdir /app/wwwroot/
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+EXPOSE 80
+EXPOSE 443
+WORKDIR /app
+ENV ASPNETCORE__URLS=http://+:80;http://+:443;
+COPY --from=build /app . 
+ENTRYPOINT ["dotnet", "BrokerService.dll" ]

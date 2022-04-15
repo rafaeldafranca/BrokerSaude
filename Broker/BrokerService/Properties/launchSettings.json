@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64971",
+      "sslPort": 44398
+    }
+  },
+  "profiles": {
+    "BrokerService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7297;http://localhost:5297",
+      "dotnetRunMessages": true,
+      "APP_RABBIT__SERVER__HOSTNAME": "broker-rabbitmq",
+      "APP_CONNECTIONSTRING": "Server=broker-sqlserver;Database=PUC-DBBroker;User Id=sa;Password=q1w2e3@db;MultipleActiveResultSets=True",
+      "APP_RABBIT__SERVER__SUFFIX": "local"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}
